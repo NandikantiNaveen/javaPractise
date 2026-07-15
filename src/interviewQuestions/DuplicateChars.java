@@ -8,29 +8,33 @@ public class DuplicateChars {
 	public static void main(String[] args) {
 
 		DuplicateChars d = new DuplicateChars();
-//		d.sudoCode();
+		d.sudoCode();
 //		d.duplicateCharacters();
 //		d.removeDuplicateCharacters();
-		removeDuplicates();
+//		removeDuplicates();
 	}
 
 	public void sudoCode() {
 
 		String s = "Naveen";
 
-		char c[] = s.toCharArray();
+		char c[] = s.toLowerCase().toCharArray();
 		System.out.println("The Given String:" + s);
 		System.out.println("The length of Character Array:" + c.length);
-		for (int i = 0; i < s.length(); i++) {
+		for (int i = 0; i < c.length; i++) {
 			int count = 1;
+			if (c[i] == '0') continue;
 			// int temp=0;
-			for (int j = i + 1; j < s.length(); j++) {
+			for (int j = i + 1; j < c.length; j++) {
 				if (c[i] == c[j]) {
 					count++;
-					break;
+					c[j]=0;
 				}
 			}
-			System.out.println("Duplicate Character is:" + c[i] + count);
+
+			if (count > 0) 
+				System.out.println("Duplicate Character: " + c[i] + " Count: " + count);
+
 		}
 
 	}
