@@ -20,5 +20,17 @@ public class greatestNumber {
 		System.out.println(n +" largest number "+" "+nthLargest);						
 
 	}
+	
+	public void getLargestNumber(int num[]) {
+		// I need 3rd largest element from the array.
+		int n=3;
+		Integer nthLargest = Arrays.stream(num)//IntStream
+		.boxed() // converts primitive steam into stream of wraper object
+		.distinct() // removed duplicates
+		.sorted(Comparator.reverseOrder())
+		.skip(n-1)
+		.findFirst()
+		.orElse(null);
+	}
 
 }

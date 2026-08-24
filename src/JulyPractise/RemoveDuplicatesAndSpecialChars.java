@@ -21,5 +21,13 @@ public class RemoveDuplicatesAndSpecialChars {
 
 		System.out.println(newStr);
 	}
+	
+	public void removeDuplicates(String str) {
+		str.chars()
+		.mapToObj(ch->(char)ch)
+		.filter(Character::isLetterOrDigit)
+		.distinct()
+		.map(String::valueOf).collect(Collectors.joining());
+	}
 
 }
